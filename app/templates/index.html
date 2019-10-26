@@ -4,37 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Winter Shop</title>
-    <link rel="icon" href="{% static 'img/favicon.png' %}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <!-- font awesome CSS -->
-    {% block font_awesome %}
-         <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    {% block title %}
+        <title>Winter Shop</title>
     {% endblock %}
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-    <!-- swiper CSS -->
-    {% block swiperCSS %}
+    {% block css %}
+        <link rel="icon" href="{% static 'img/favicon.png' %}">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+        <!-- animate CSS -->
+        <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+        <!-- owl carousel CSS -->
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="{% static 'css/all.css' %}">
+        <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+        <!-- flaticon CSS -->
+        <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+        <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+        <!-- font awesome CSS -->
+        <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
         <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+        <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
-    <!-- style CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body class="">
-<!--::header part start::-->
-{% block header %}
-    {% include 'header.html' %}
-{% endblock %}
-<!-- Header part end-->
 {% block content %}
+    <body>
+    <!--::header part start::-->
+    {% block header %}
+        {% include 'header.html' %}
+    {% endblock %}
+    <!-- Header part end-->
     <!-- banner part start-->
     {% block banner %}
         {% include 'banner.html' %}
@@ -71,31 +71,33 @@
 {% endblock %}
 <!--::footer_part end::-->
 
-<!-- jquery plugins here-->
-<script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
-<!-- popper js -->
-<script src="{% static 'js/popper.min.js' %}"></script>
-<!-- bootstrap js -->
-<script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
-<!-- easing js -->
-<script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
-<!-- swiper js -->
-<script src="{% static 'js/swiper.min.js' %}"></script>
-<!-- swiper js -->
-<script src="{% static 'js/mixitup.min.js' %}"></script>
-<!-- particles js -->
-<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
-<!-- slick js -->
-<script src="{% static 'js/slick.min.js' %}"></script>
-<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
-<script src="{% static 'js/waypoints.min.js' %}"></script>
-<script src="{% static 'js/contact.js' %}"></script>
-<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-<script src="{% static 'js/jquery.form.js' %}"></script>
-<script src="{% static 'js/jquery.validate.min.js' %}"></script>
-<script src="{% static 'js/mail-script.js' %}"></script>
-<!-- custom js -->
-<script src="{% static 'js/custom.js' %}"></script>
+{% block javascript %}
+    <!-- jquery plugins here-->
+    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+    <!-- popper js -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <!-- easing js -->
+    <script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'js/swiper.min.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <!-- particles js -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <!-- slick js -->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/contact.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'js/custom.js' %}"></script>
+{% endblock %}
 </body>
 </html>

@@ -1,2 +1,142 @@
 {% extends 'index.html' %}
 {% load static %}
+{% block title %}
+    <title>Login to Winter Shop</title>
+{% endblock %}
+{% block css %}
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+    <body class="bg-white">
+    {% block header %}
+        {% include 'header.html' %}
+    {% endblock %}
+    <!--================Home Banner Area =================-->
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner">
+                        <div class="breadcrumb_iner_item">
+                            <p>Home / Login</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+    <!--================login_part Area =================-->
+    <section class="login_part section_padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_text text-center">
+                        <div class="login_part_text_iner">
+                            <h2>New to our Shop?</h2>
+                            <p>There are advances being made in science and technology
+                                everyday, and a good example of this is the</p>
+                            <a href="#" class="btn_3">Create an Account</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="login_part_form">
+                        <div class="login_part_form_iner">
+                            <h3>Welcome Back ! <br>
+                                Please Sign in now</h3>
+                            <form class="row contact_form" action="{% url 'login' %}" method="post"
+                                  novalidate="novalidate">
+                                {% csrf_token %}
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" id="username" name="username" value=""
+                                           placeholder="Username or Email">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="password" name="password" value=""
+                                           placeholder="Password">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    {% if messages %}
+                                        <ul class="messages">
+                                            {% for message in messages %}
+                                                {% ifequal message.tags 'error' %}
+                                                    <div style="color: red">
+                                                    <i class="fa fa-times" style="color: red"></i>
+                                                        <strong>{{ message }}</strong>
+                                                    </div>
+                                                {% endifequal %}
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    <div class="creat_account d-flex align-items-center">
+                                        <input type="checkbox" id="f-option" name="selector">
+                                        <label for="f-option">Remember me</label>
+                                    </div>
+                                    <button type="submit" value="submit" class="btn_3">
+                                        log in
+                                    </button>
+                                    <a class="lost_pass" href="#">forget password?</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================login_part end =================-->
+
+    <!-- subscribe_area part start-->
+    <section class="instagram_photo">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="instagram_photo_iner">
+                        <div class="single_instgram_photo">
+                            <img src="{% static 'img/instagram/inst_1.png' %}" alt="">
+                            <a href="#"><i class="ti-instagram"></i></a>
+                        </div>
+                        <div class="single_instgram_photo">
+                            <img src="{% static 'img/instagram/inst_2.png' %}" alt="">
+                            <a href="#"><i class="ti-instagram"></i></a>
+                        </div>
+                        <div class="single_instgram_photo">
+                            <img src="{% static 'img/instagram/inst_3.png' %}" alt="">
+                            <a href="#"><i class="ti-instagram"></i></a>
+                        </div>
+                        <div class="single_instgram_photo">
+                            <img src="{% static 'img/instagram/inst_4.png' %}" alt="">
+                            <a href="#"><i class="ti-instagram"></i></a>
+                        </div>
+                        <div class="single_instgram_photo">
+                            <img src="{% static 'img/instagram/inst_5.png' %}" alt="">
+                            <a href="#"><i class="ti-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::subscribe_area part end::-->
+    </body>
+{% endblock %}
