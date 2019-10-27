@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
+import requests
+from rest_framework.authtoken.models import Token
 
 
 # Create your views here.
@@ -21,19 +23,22 @@ def login(request):
     if request.method == "POST":
         email = request.POST.get('username').strip()
         password = request.POST.get('password').strip()
+        url_api = 'http://127.0.0.1:8000/api/v1/login'
+
         if '@' in email:
             username = User.objects.get(email=email).username
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                auth_login(request, user)
-                return render(request, 'index.html')
-            else:
+            data = {'username': username,
+                    'password': password}
+            result = requests.post(url_api, data=data)
+            if result.status_code == 404:
                 messages.error(request, "Tài khoản hoặc mật khẩu không đúng")
                 return render(request, 'pages/login.html')
         else:
-            user = authenticate(username=email, password=password)
-            print(user.username)
-            if user is not None:
+            data = {'username': email,
+                    'password': password}
+            result = requests.post(url_api, data=data)
+            if result.status_code == 200:
+                user = authenticate(username=email, password=password)
                 auth_login(request, user)
                 return render(request, 'index.html')
             else:
