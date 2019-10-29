@@ -5,14 +5,13 @@ from django.core.exceptions import ValidationError
 
 
 class RegistrationForm(UserCreationForm):
-    first_name = forms.CharField(required=False, widget=forms.TextInput(attrs={
+    first_name = forms.CharField(widget=forms.TextInput(attrs={
         'type': 'text',
         'class': 'form-control input-lg',
         'name': 'firstname',
-        'placeholder': 'Họ',
-        'autofocus': 'autofocus'
+        'placeholder': 'Họ'
     }))
-    last_name = forms.CharField(required=False, widget=forms.TextInput(attrs={
+    last_name = forms.CharField(widget=forms.TextInput(attrs={
         'type': 'text',
         'class': 'form-control input-lg',
         'name': 'lastname',
@@ -22,7 +21,7 @@ class RegistrationForm(UserCreationForm):
         'type': 'text',
         'class': 'form-control input-lg',
         'name': 'username',
-        'placeholder': 'Username',
+        'placeholder': 'Userame',
         'required': 'required'
     }))
     email = forms.CharField(widget=forms.TextInput(attrs={
@@ -51,19 +50,11 @@ class RegistrationForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
-    def clean_username(self):
-        username = self.cleaned_data.get('username')
-        if User.objects.filter(username=username).exists():
-            raise ValidationError(
-                "Tên tài khoản trên đã tồn tại"
-            )
-        return username
-
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
             raise ValidationError(
-                "Email trên đã tồn tại"
+                "Email đã tồn tại"
             )
         return email
 
