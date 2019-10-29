@@ -60,6 +60,17 @@
             <div class="form-group">
                 {{ form.password2 }}
             </div>
+            {% if form.errors %}
+                <ul style="text-decoration: none">
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li style="text-decoration: none;">
+                                <strong style="color: red; font-size: 12px; font-style: italic">{{ error|escape }}</strong>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
             <div class="form-group">
                 <button type="submit" class="btn btn-success btn-lg btn-block signup-btn">Tạo tài khoản</button>
             </div>
@@ -96,4 +107,11 @@
     <!-- custom js -->
     <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'font-awesome/js/fontawesome.min.js' %}"></script>
+    <script type="javascript">
+        $(document).ready(function () {
+            window.onload = function () {
+                $("#id_first_name").focus();
+            }
+        })
+    </script>
 {% endblock %}
