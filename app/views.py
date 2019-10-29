@@ -3,7 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 import requests
-from rest_framework.authtoken.models import Token
+
+
+from .forms import (
+    RegistrationForm
+)
 
 
 # Create your views here.
@@ -45,3 +49,8 @@ def login(request):
                 messages.error(request, "Tài khoản hoặc mật khẩu không đúng")
                 return render(request, 'pages/login.html')
     return render(request, 'pages/login.html')
+
+
+def register(request):
+    form = RegistrationForm()
+    return render(request, 'pages/register.html', {'form': form})

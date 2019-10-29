@@ -146,6 +146,7 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
 BOWER_INSTALLED_APPS = (
     'bootstrap#4.3.1',
     'animate.css',
+    'fontawesome#4.7.0',
 )
 
 REST_FRAMEWORK = {
