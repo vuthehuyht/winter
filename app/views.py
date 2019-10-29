@@ -1,8 +1,9 @@
-from django.shortcuts import render
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login as auth_login
-from django.contrib import messages
 import requests
+from django.contrib import messages
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.models import User
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 
 from .forms import (
     RegistrationForm
@@ -54,13 +55,9 @@ def register(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            data = {
-                'first_name': form.cleaned_data.get('first_name'),
-                'last_name': form.cleaned_data.get('last_name'),
-                'username': form.cleaned_data.get('username'),
-                'email': form.cleaned_data.get('email'),
-                'password': form.cleaned_data.get('first_name')
-            }
-            return render(request, 'pages/register.html', {'form': form})
+            user = form.save()
+            auth_login(request, user)
+            return HttpResponseRedirect('/')
+        return render(request, 'pages/register.html', {'form': form})
     form = RegistrationForm()
     return render(request, 'pages/register.html', {'form': form})
