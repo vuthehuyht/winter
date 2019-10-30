@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordResetForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
@@ -76,3 +76,13 @@ class RegistrationForm(UserCreationForm):
                 "Mật khẩu không khớp"
             )
         return password2
+
+
+class EmailForgetPasswordForm(PasswordResetForm):
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if not User.objects.filter(email__iexact=email).exists():
+            raise ValidationError(
+                "Không tìm thấy địa chỉ email"
+            )
+        return email
