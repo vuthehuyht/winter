@@ -1,16 +1,29 @@
 {% extends 'index.html' %}
 {% load static %}
-{% block font_awesome %}
-     <link rel="stylesheet" href="{% static 'css/all.css' %}">
-     <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-{% endblock %}
-{% block swiperCSS %}
+{% block css %}
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
     <link rel="stylesheet" href="{% static 'css/slick.css' %}">
     <link rel="stylesheet" href="{% static 'css/price_rangs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 {% block content %}
-    <!--================Home Banner Area =================-->
-    <!-- breadcrumb start-->
+    {% block header %}
+        {% include 'header.html' %}
+    {% endblock %}
     <section class="breadcrumb breadcrumb_bg">
         <div class="container">
             <div class="row justify-content-center">
@@ -43,27 +56,27 @@
                                     </li>
                                     <li class="sub-menu">
                                         <a href="#Electronics" class=" d-flex justify-content-between">
-                                            Electronics
+                                            Jackets and coats
                                             <div class="right ti-plus"></div>
                                         </a>
                                         <ul>
                                             <li>
-                                                <a href="#Electronics">Home Appliances</a>
+                                                <a href="#Electronics">Trousers and shorts</a>
                                             </li>
                                             <li>
-                                                <a href="#Electronics">Smartphones</a>
+                                                <a href="#Electronics">Suits</a>
                                             </li>
                                             <li>
-                                                <a href="#Electronics">Kitchen Appliances</a>
+                                                <a href="#Electronics">Skirts and dresses</a>
                                             </li>
                                             <li>
-                                                <a href="#Electronics">Computer Accessories</a>
+                                                <a href="#Electronics">Shoes, boots and slippers</a>
                                             </li>
                                             <li>
-                                                <a href="#Electronics">Meat Alternatives</a>
+                                                <a href="#Electronics">Parts of shoes, boots and slippers</a>
                                             </li>
                                             <li>
-                                                <a href="#Electronics">Appliances</a>
+                                                <a href="#Electronics">Sweaters and waistcoats</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -106,29 +119,6 @@
                                     <li>
                                         <input type="radio" aria-label="Radio button for following text input">
                                         <a href="#">Samsung</a>
-                                    </li>
-                                </ul>
-                                <ul class="list">
-                                    <p>color</p>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">Black</a>
-                                    </li>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">Black Leather</a>
-                                    </li>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">Black with red</a>
-                                    </li>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">Gold</a>
-                                    </li>
-                                    <li>
-                                        <input type="radio" aria-label="Radio button for following text input">
-                                        <a href="#">Spacegrey</a>
                                     </li>
                                 </ul>
                             </div>

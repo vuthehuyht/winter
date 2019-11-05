@@ -36,7 +36,9 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <p>Home / Login</p>
+                            {% ifequal request.get_full_path '/login/' %}
+                                <p>Home / Login</p>
+                            {% endifequal %}
                         </div>
                     </div>
                 </div>

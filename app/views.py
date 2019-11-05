@@ -20,6 +20,7 @@ def blog(request):
 
 
 def shop_category(request):
+
     return render(request, 'pages/category.html')
 
 
