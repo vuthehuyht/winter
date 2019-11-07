@@ -1,13 +1,18 @@
 import requests
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login
+from django.template.context_processors import csrf
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
+from rest_framework.authtoken.models import Token
 
 from .forms import (
     RegistrationForm
 )
+
+from .models import Product
+import json
 
 
 # Create your views here.
@@ -20,7 +25,14 @@ def blog(request):
 
 
 def shop_category(request):
-    return render(request, 'pages/category.html')
+    url_api = 'http://127.0.0.1:8000/api/v1/product'
+    token, _ = Token.objects.get_or_create(user=request.user)
+    headers = {'Authorization': 'Token ' + token.key}
+    result = requests.get(url_api, headers=headers)
+    args = {}
+    args.update(csrf(request))
+    args['contents'] = result.json()
+    return render(request, 'pages/category.html', args)
 
 
 def login(request):
