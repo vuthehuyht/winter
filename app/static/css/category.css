@@ -1,0 +1,53 @@
+.widgets_inner .range_item .slider-wrap {
+    padding: 0 12px 5px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1
+}
+
+.widgets_inner .range_item .slider-title {
+    margin-bottom: 5px;
+    font-size: 13px;
+    text-align: left;
+    color: #858585;
+    font-weight: 300
+}
+
+.widgets_inner .range_item input {
+    width: 85px;
+    height: 30px;
+    padding: 0 8px;
+    background: #fff;
+    border-radius: 4px;
+    text-align: left;
+    border: 1px solid #b8b8b8;
+    outline: 0;
+    font-size: 13px
+}
+
+.widgets_inner .range_item .slider-wrap input + span {
+    width: 7px;
+    height: 1px;
+    font-size: 0;
+    display: inline-block;
+    background: #9a9a9a;
+    margin: 0 4px;
+    vertical-align: middle;
+}
+
+.widgets_inner .range_item .slider-wrap .btn-default {
+    background: #fff;
+    border: 1px solid #189eff;
+    font-size: 12px;
+    color: #189eff;
+    padding: 5px 15px;
+    width: 84px;
+    margin-top: 8px;
+    border-radius: 4px
+}
+
+.widgets_inner .range_item .slider-wrap .btn-default:hover {
+    background: #03a9e6;
+    color: #fff
+}
+

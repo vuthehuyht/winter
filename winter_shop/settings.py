@@ -118,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'
 
 USE_I18N = True
 
@@ -139,7 +139,8 @@ STATICFILES_FINDERS = [
     'djangobower.finders.BowerFinder',
 ]
 
-MEDIA_ROOT = 'uploads/'
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 # Bower
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
