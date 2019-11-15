@@ -6,7 +6,6 @@ djangorestframework==3.10.3
 idna==2.8
 Pillow==6.2.1
 pytz==2019.3
-mysqlclient
 requests==2.22.0
 sentry-sdk==0.13.0
 six==1.12.0
