@@ -3,16 +3,13 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login
 from django.template.context_processors import csrf
 from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from rest_framework.authtoken.models import Token
 
 from .forms import (
     RegistrationForm
 )
-
-from .models import Product
-import json
 
 
 # Create your views here.
